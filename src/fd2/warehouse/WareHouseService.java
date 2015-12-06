@@ -1,18 +1,8 @@
 package fd2.warehouse;
 
-import java.util.Map;
-
 /**
  * Created by hzqiuxm on 2015/12/5 0005.
  */
-public class WareHouseService implements IWareHousre {
-    @Override
-    public Map<Integer, Integer> allUseGrids(int id) {
-        return null;
-    }
-
-    @Override
-    public Map<Integer, Integer> allUnUseGrids(int id) {
-        return null;
-    }
+public class WareHouseService  {
+ //此处为了方便演示，不直接在Client中实现调用
 }
