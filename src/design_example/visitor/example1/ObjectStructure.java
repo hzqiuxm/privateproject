@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class ObjectStructure {
     private List<Person> elements = new ArrayList<Person>();
+
     public void attach(Person element){
         elements.add(element);
     }
