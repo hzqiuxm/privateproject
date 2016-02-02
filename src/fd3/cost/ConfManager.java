@@ -16,7 +16,7 @@ public class ConfManager {
     static{
         map.put(TrafficCost.TRAFFIC_ITEM, "fd3.cost.TrafficCost");
         map.put(FoodCost.FOOD_ITEM, "fd3.cost.FoodCost");
-        map.put(LiveCost.LIVE_ITEM, "cfd3.cost.LiveCost");
+        map.put(LiveCost.LIVE_ITEM, "fd3.cost.LiveCost");
         map.put(GuidCost.GUID_ITEM, "fd3.cost.GuidCost");
     }
 
