@@ -1,4 +1,4 @@
-package java_base.chatper1;
+package java_base;
 
 /**
  * Created by qiuding on 16/1/18.
