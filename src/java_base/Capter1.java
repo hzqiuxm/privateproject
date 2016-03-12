@@ -32,6 +32,10 @@ public class Capter1 {
             System.out.println("你TM逗我玩呢！");
         }
 
+        if(f1 == f2){
+            System.out.println("对不起，我们是相等的!");
+        }
+
     }
 
 
