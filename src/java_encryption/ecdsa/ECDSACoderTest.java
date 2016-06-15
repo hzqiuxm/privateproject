@@ -56,7 +56,7 @@ public class ECDSACoderTest {
         byte[] sign = ECDSACoder.sign(data, privateKey);
         System.err.println("签名:\r" + Hex.encodeHexString(sign));
         long endTime = System.currentTimeMillis();
-        System.out.println(endTime-startTIme);
+        System.out.println(endTime-startTIme +"ms");
         // 验证签名
         boolean status = ECDSACoder.verify(data, publicKey, sign);
         System.err.println("状态:\r" + status);
