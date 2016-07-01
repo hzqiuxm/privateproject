@@ -10,12 +10,12 @@ var getname = function(){
     alert(this.name);
 };
 
-getname();
-getname.call(obj1);
-getname.call(obj2);
+getname();//window
+getname.call(obj1);//qiuxm
+getname.call(obj2);//hzqiuxm
 
 //借用其他对象的方法 借用了Array的push方法 注意a必须是个对象类型
 var a = {};
 Array.prototype.push.call(a,'qiuxm');
 alert(a.length);
-alert(a[0]);
+alert(a[0]);//qiuxm
