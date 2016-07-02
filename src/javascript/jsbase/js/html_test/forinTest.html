@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for in test</title>
+</head>
+<body>
+<script type="application/javascript">
+    var prop;
+    var values = [1,2,3,4,5,6];
+    //虽然可以得到正确的结果,但建议不要对数组遍历使用
+    for(prop in values){
+        if(values.hasOwnProperty(prop)){
+            console.log(prop);
+        }
+    }
+
+    var obj;
+    var objects = {
+        name : "hzqiuxm",
+        age  : 30,
+        status : "CTO"
+    }
+
+    //正确的使用方式
+    for(obj in objects ){
+        if(objects.hasOwnProperty(obj)){
+            console.log(obj);
+        }
+    }
+</script>
+</body>
+</html>
