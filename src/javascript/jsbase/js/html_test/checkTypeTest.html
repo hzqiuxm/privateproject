@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkTypeTest</title>
+</head>
+<body>
+
+<script type="application/javascript">
+    //typeof检查5（实际是4种）种基本类型 字符串，数值，布尔，undefined，null(这个没有)
+    var name = "name";
+    if(typeof name === "string"){
+        console.log(name.substr(3));
+    }
+
+    var count = 1;
+    if(typeof count === "number"){
+        console.log(count++);
+    }
+
+    var found = true;
+    if(typeof found === "boolean" && found){
+        console.log(!found);
+    }
+
+    if(typeof myapp === "undefined"){
+        myapp = {
+            name : "刚刚起的",
+            desc : "还来不及说点什么"
+        }
+        console.log(myapp.name,myapp.desc);
+    }
+
+    //使用Instanceof 进行对象类型的判断检查 Date Error
+    var date = new Date();
+    if(date instanceof Date){
+        console.log(date.getFullYear());
+    }
+
+</script>
+</body>
+</html>
