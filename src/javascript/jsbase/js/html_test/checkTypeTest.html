@@ -37,6 +37,28 @@
         console.log(date.getFullYear());
     }
 
+    //使用typeof判断函数
+    function myFunc() {};
+    if(typeof myFunc === "function"){
+        console.log("I am a function!");
+    }
+
+    //检测数组 Array.isArray()
+    var value = [];
+    if(Array.isArray(value)){
+        console.log("I am a Array!")
+    }
+
+    //Array.isArray()源码
+    /*
+    function isArray(value) {
+        if(typeof Array.isArray === "function"){
+            return Array.isArray(value);
+        }else {
+            return Object.prototype.toString().call(value) === "[object Array]";
+        }
+    }
+    */
 </script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inherit Test</title>
+</head>
+<body>
+
+<script type="application/javascript">
+
+    //不要动不是你的对象，如：新增，覆盖，删除
+    //要动的话，通过继承来实现
+    //对象继承，原型继承,通过依赖原型实现
+    var person = {
+        name : "hzqiuxm",
+        sayName : function () {
+            alert(this.name);
+        }
+    }
+
+    var myPerson = Object.create(person);
+    myPerson.sayName();
+
+    var myPerson2 = Object.create(person,{
+        name : {
+            value : "new name"
+        }
+    })
+
+    myPerson2.sayName();
+    person.sayName();
+
+    //基于类型的继承，通过构造函数实现
+    function myError(mesaage) {
+        this.message = mesaage;
+    }
+
+    myError.prototype = new Error();
+
+    var error = new myError("somethings bad happend");
+    console.log(error instanceof Error);
+    console.log(error instanceof myError);
+
+
+    function Person(name) {
+        this.name;
+    }
+
+    function Author(name) {
+        Person.call(this,name);
+    }
+
+    Author.prototype = new Person();
+
+    //阻止修改 1.防止扩展 2.密封 3.冻结
+    //防止扩展(不能新增)
+    Object.preventExtensions();
+
+    //密封（不能新增，删除）
+    Object.seal();
+
+    //冻结（不能新增，修改，删除）
+    Object.freeze();
+
+
+</script>
+</body>
+</html>
