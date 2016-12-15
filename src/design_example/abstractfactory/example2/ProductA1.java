@@ -4,5 +4,6 @@ package design_example.abstractfactory.example2;
  */
 public class ProductA1 implements AbstractProductA {
     //实现产品A的接口中定义的操作
+
 }
 

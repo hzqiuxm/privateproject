@@ -1,10 +1,10 @@
 package design_example.abstractfactory.example6.dao.impl;
 /**
- * �����Ӽ�¼��Ӧ��DAO�����ӿ�
+ * 订单子记录对应的DAO操作接口
  */
 public interface OrderDetailDAO {
 	/**
-	 * ʾ�ⷽ�������涩���Ӽ�¼
+	 * 示意方法，保存订单子记录
 	 */
 	public void saveOrderDetail();
 }
