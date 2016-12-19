@@ -7,6 +7,7 @@ public class Client {
 		//设置需要的数据，然后构建保险合同对象
 		InsuranceContract contract = builder
 				.setOtherData("test")
+//				.setPersonName("qxm")
 				.setCompanyName("cc")
 				.build();
 

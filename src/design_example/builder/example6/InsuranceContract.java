@@ -1,6 +1,6 @@
 package design_example.builder.example6;
 /**
- * 保险合同的对象
+ * 保险合同的对象,builder內联化，作为内部类。保证了客户端无法直接创建InsuranceContract对象
  */
 public class InsuranceContract {
 	/**
