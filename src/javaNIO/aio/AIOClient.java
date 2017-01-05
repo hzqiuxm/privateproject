@@ -25,15 +25,18 @@ public class AIOClient {
 
     }
 
-    public void writedata(byte b){
-        ByteBuffer byteBuffer = ByteBuffer.allocate(32);
-        byteBuffer.put(b);
-        byteBuffer.flip();
+    public void writedata(byte b) throws Exception{
+//        ByteBuffer byteBuffer = ByteBuffer.allocate(32);
+//        byteBuffer.put(b);
+        ByteBuffer byteBuffer = ByteBuffer.wrap("hello".getBytes("UTF-8"));
+//        byteBuffer.flip();
         client.write(byteBuffer);
+        byteBuffer.clear();
+        client.close();
 
     }
 
-    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
+    public static void main(String[] args) throws Exception{
 
         String host = "127.0.0.1";
         int port = 7081;

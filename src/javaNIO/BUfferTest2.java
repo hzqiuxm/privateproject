@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
+import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -19,28 +20,43 @@ import java.nio.file.Paths;
  */
 public class BUfferTest2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
-        ByteBuffer header = ByteBuffer.allocate(128);
-        ByteBuffer body = ByteBuffer.allocate(1024);
 
-        ByteBuffer[] bufferArray = { header, body };
-
+        ByteBuffer byteBuffer = ByteBuffer.allocate(10);//中文乱码问题如何解决呢？
         RandomAccessFile raf = null;
+        FileChannel channel = null;
+
         try {
 
-            raf = new RandomAccessFile("E:\\testdata\\number.txt","rw");
-            FileChannel channel = raf.getChannel();
-            channel.read(bufferArray);//写满第一个再写第二个
+            raf = new RandomAccessFile("E:\\testdata\\data3","rw");
+            channel = raf.getChannel();
 
+            int size = channel.read(byteBuffer);
 
-//            //选择器使用
-//            Selector selector = Selector.open();
-//            channel.configureBlocking(false);
-//            SelectionKey key = channel.register(selector,Selectionkey.OP_READ);
+            while (size>0) {
+
+                //切换到写模式
+                byteBuffer.flip();
+
+//                while (byteBuffer.hasRemaining()){
+//                    System.out.println(byteBuffer.getChar());
+//                }
+
+                Charset charset = Charset.forName("UTF-8");
+                System.out.println("bytebuffer = " + charset.decode(byteBuffer).toString());
+                byteBuffer.clear();
+                size = channel.read(byteBuffer);
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+
+            channel.close();
+            raf.close();
+
         }
 
 

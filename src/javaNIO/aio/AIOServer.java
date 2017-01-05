@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.nio.charset.Charset;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -17,19 +18,18 @@ import java.util.concurrent.ExecutionException;
 public class AIOServer {
 
 
-    public AIOServer(int port) throws IOException {
+    public AIOServer(int port) throws Exception {
         AsynchronousServerSocketChannel listener = AsynchronousServerSocketChannel.open()
                 .bind(new InetSocketAddress(port));
 
         listener.accept(null, new CompletionHandler<AsynchronousSocketChannel, Object>() {
             @Override
             public void completed(AsynchronousSocketChannel result, Object attachment) {
-                    listener.accept(null,this);
+                    listener.accept(attachment,this);
                 try {
+                    //自己的业务逻辑
                     handler(result);
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -42,15 +42,22 @@ public class AIOServer {
     }
 
     //业务逻辑
-    public void handler(AsynchronousSocketChannel ch) throws ExecutionException, InterruptedException {
-        ByteBuffer byteBuffer = ByteBuffer.allocate(32);
-        ch.read(byteBuffer).get();
-        byteBuffer.flip();
-        System.out.println("服务端接收AIO: " + byteBuffer.get());
+    public void handler(AsynchronousSocketChannel ch) throws Exception, InterruptedException {
+        ByteBuffer buf = ByteBuffer.allocate(32);
+//        ch.read(buf).get();
+//        buf.flip();
+//        System.out.println("服务端接收AIO: " + buf.get());
+        int size = ch.read(buf).get();
+        while(size>0){
+            buf.flip();
+            Charset charset = Charset.forName("UTF-8");
+            System.out.print(charset.newDecoder().decode(buf).toString());
+            size = ch.read(buf).get();
+        }
 
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         int port = 7081;
         AIOServer aioServer = new AIOServer(port);
