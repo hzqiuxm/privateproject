@@ -20,7 +20,7 @@ public class Box {
 
     public static void main(String[] args) {
         Box box1 = new Box(1);
-        Box box2 = new Box(2);
+        Box box2 = new Box(1);
 
         System.out.println(box1.equals(box2));
         System.out.println(box1 == box2);

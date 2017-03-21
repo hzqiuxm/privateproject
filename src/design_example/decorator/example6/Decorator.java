@@ -9,7 +9,7 @@ public abstract class Decorator implements GoodsSaleEbi{
 	protected GoodsSaleEbi ebi;
 	/**
 	 * 通过构造方法传入被装饰的对象
-	 * @param ebi被装饰的对象
+	 * @param ebi  被装饰的对象
 	 */
 	public Decorator(GoodsSaleEbi ebi){
 		this.ebi = ebi;

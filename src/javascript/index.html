@@ -5,7 +5,24 @@
     <title>Title</title>
 </head>
 <body>
-<script type="text/javascript" src="jsbase/js/funcation.js">
+<!--<script type="text/javascript" src="jsbase/js/funcation.js">-->
+<script>
+
+    function YHT() {};
+    var hello = {};
+
+    hello.prototype = new YHT();
+
+    hello = new YHT();
+
+//    if(hello instanceof YHT === true){
+//        console.log("is ok!")
+//    }else {
+//        console.log("is not ok!")
+//    }
+
+    console.log(hello instanceof YHT);
+
 
 </script>
 
