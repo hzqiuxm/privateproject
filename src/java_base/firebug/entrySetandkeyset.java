@@ -10,7 +10,7 @@ import java.util.*;
  *  * 测试keySet()与entrySet()的迭代时间
  * keySet():迭代后只能通过get()取key
  * entrySet()：迭代后可以e.getKey()，e.getValue()取key和value。返回的是Entry接口
- * 最后发现keySet()的速度比entrySet()慢了很多。
+ * 最后发现keySet()的速度比entrySet()慢了很多。2-3倍
  */
 public class entrySetandkeyset {
 
