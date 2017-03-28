@@ -53,7 +53,7 @@ public abstract class AESCoder {
 		/*
 		 * 实例化
 		 * 使用PKCS7Padding填充方式，按如下方式实现
-		 * Cipher.getInstance(CIPHER_ALGORITHM, "BC");
+		 * Cipher.getThreadInstance(CIPHER_ALGORITHM, "BC");
 		 */
         Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
 
@@ -81,7 +81,7 @@ public abstract class AESCoder {
 		/*
 		 * 实例化
 		 * 使用PKCS7Padding填充方式，按如下方式实现
-		 * Cipher.getInstance(CIPHER_ALGORITHM, "BC");
+		 * Cipher.getThreadInstance(CIPHER_ALGORITHM, "BC");
 		 */
         Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
 
