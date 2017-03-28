@@ -9,6 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @Author 临江仙 hxqiuxm@163.com
  * @Date 2017/3/28 0028 20:47
+ * A执行5次，轮到B执行10次，再轮到C执行15次，如此循环50次
  */
 public class SingalTest {
 
