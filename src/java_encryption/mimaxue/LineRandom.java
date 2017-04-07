@@ -20,7 +20,7 @@ public class LineRandom {
         while(true){
             random = (a * seed + c)%m;
             seed = random;
-            System.out.println(random);//2 0 1 4 6 5 .....
+            System.out.print(random);//2 0 1 4 6 5 .....
         }
 
     }

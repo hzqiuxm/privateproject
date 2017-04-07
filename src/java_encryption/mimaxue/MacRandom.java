@@ -22,16 +22,16 @@ public class MacRandom {
     public static final String MAC_ALGORITHM = "HmacSHA512";
     public static final String MD_ALGORITHM = "MD5";
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         String counter = "hello world!";//计数器初始值
         String randomStr = "";//随机数
 
 
-        while (true){
+        while (true) {
             randomStr = SHA(counter.getBytes());
             System.out.println(randomStr);
-            counter  = counter + 1;
+            counter = counter + 1;
         }
 
     }
@@ -39,6 +39,7 @@ public class MacRandom {
     /**
      * SHA Security Hash Algorithm 安全散列算法，固定长度摘要信息 SHA-1 SHA-2( SHA-224
      * SHA-256 SHA-384 SHA-512) 使用的依然是MessageDigest类，JDK不支持224
+     *
      * @param plainText
      * @return
      */
@@ -64,7 +65,7 @@ public class MacRandom {
      * @param plainText
      * @return
      */
-    public static String MAC(byte[] plainText) throws Exception{
+    public static String MAC(byte[] plainText) throws Exception {
 
         try {
             byte[] secretBytes = generatorMACSecretKey();
@@ -128,4 +129,4 @@ public class MacRandom {
 
     }
 
-    }
+}
