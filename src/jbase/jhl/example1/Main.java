@@ -1,6 +1,7 @@
 package jbase.jhl.example1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Copyright © 2016年 author. All rights reserved.
@@ -23,12 +24,20 @@ public class Main {
         System.out.println("劳动合同的总保险金额是: " + laborFeeTotal);
 
 
-        Double houseAverageFee = contractList.stream()
+        double houseAverageFee = contractList.stream()
                                             .filter(contract -> contract.getContractEnum() == ContractEnum.HOUSE)
                                             .mapToInt(Contract::getInsuranceFee)
                                             .average().getAsDouble();
 
-        System.out.println("房产类合同的总保险金额是：" + houseAverageFee);
+        System.out.println("房产类合同的保险平均金额是：" + houseAverageFee);
+
+
+        List<Contract> personnelList = contractList.stream()
+                                                    .filter(contract -> contract.getContractEnum() == ContractEnum.PERSONNEL)
+                                                    .collect(Collectors.toList());
+
+        System.out.println( "人事类合同集合清单 ： " + personnelList + " 总计：" + personnelList.size());
+
 
 
     }
