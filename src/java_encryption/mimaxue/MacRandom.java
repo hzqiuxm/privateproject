@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public class MacRandom {
     public static final String SHA_ALGORITHM = "SHA-512";
     public static final String MAC_ALGORITHM = "HmacSHA512";
-    public static final String MD_ALGORITHM = "MD5";
+    public static final String MD_ALGORITHM = "md5";
 
     public static void main(String[] args) throws Exception {
 
@@ -111,7 +111,7 @@ public class MacRandom {
     }
 
     /**
-     * 消息摘要算法，MD家族，有MD2 MD4 MD5，其中MD4 JDK不支持
+     * 消息摘要算法，MD家族，有MD2 MD4 md5，其中MD4 JDK不支持
      *
      * @param plainText
      * @return

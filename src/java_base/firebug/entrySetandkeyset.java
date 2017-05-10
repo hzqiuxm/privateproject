@@ -51,5 +51,8 @@ public class entrySetandkeyset {
         long e2times = System.currentTimeMillis();
         System.out.println("time 2 = " + (e2times-s2times));//9ms
 
+
+
+
     }
 }

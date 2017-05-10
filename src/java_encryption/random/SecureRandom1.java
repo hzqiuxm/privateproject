@@ -1,5 +1,7 @@
 package java_encryption.random;
 
+import org.junit.Test;
+
 import java.security.*;
 
 /**
@@ -18,12 +20,13 @@ public class SecureRandom1 {
         System.out.println(secureRandom.nextInt(10));
 
 //        Signature jdksignature = Signature.getInstance("SHA256withRSA");
-        signatureTest();
+//        signatureTest();
 
     }
 
     /**
      * 数字签名处理示例
+     * JDK自带数字签名实现
      * @throws Exception
      */
     public static void signatureTest() throws Exception {
@@ -45,6 +48,15 @@ public class SecureRandom1 {
         boolean verify = signature.verify(sign);
         System.out.println("验证结果： " + verify);
 
+
+    }
+
+    @Test
+    public final void testSecureRandom(){
+        SecureRandom secureRandom  = new SecureRandom();
+        byte bytes[] = new byte[20];
+
+        System.out.println(secureRandom.nextInt());
 
     }
 }

@@ -1,10 +1,8 @@
 package java8new;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * Copyright © 2016年 author. All rights reserved.
@@ -40,7 +38,24 @@ public class LocalDateTest {
         DateTimeFormatter Formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy:HH:mm:ss");
         String format = zonedDateTime.format(Formatter);
 
-        System.out.println("市区获得时间是:" + format);
+        System.out.println("时区获得时间是:" + format);
+
+        //时间的增加减少
+        System.out.println(localDate.minusDays(5));
+        System.out.println(localDate.minusDays(-5));
+        System.out.println(localDateTime.minusHours(1));
+        System.out.println(localDateTime.minusSeconds(10));
+
+        //获取精确时间
+        System.out.println(localDateTime.getNano());
+
+
+
+        //Date与LocalDate之间转化
+        Date date = new Date();
+        LocalDate toLocalDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        System.out.println(toLocalDate);
+
 
     }
 }
