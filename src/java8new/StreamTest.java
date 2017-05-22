@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * 用Stream操作person
  */
 public class StreamTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         List<Person> people = createPeople();
         Stream<Person> streamp = people.stream();
         streamp.forEach(p-> System.out.println(p.toString()));

@@ -11,6 +11,7 @@ import java.util.List;
  * @Date 2017/3/14 0014 11:13
  * 让参数具备行为能力
  */
+
 public class FilterGreenApple {
 
     //当需求是需要根据颜色，重量结合筛选，一般会采用策略者模式

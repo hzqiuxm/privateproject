@@ -33,7 +33,7 @@ public class Main {
         customers.forEach(out::println);
 
 
-        //中文拼音排序,不是试题范围，仅做参考
+        //中文拼音排序,因为使用到第三方库不是试题范围，仅做参考
         List<Customer> customers2 = Arrays.asList(
                 new Customer("张三",17,"shengshijiayuan"),
                 new Customer("李四",29,"taoyuanxiaozhen"),
