@@ -57,7 +57,21 @@ public class example1 {
     }
 
 
+    public static void findPythagoreanNumber(){
+
+        int a = 12;
+        IntStream.rangeClosed(1, 100)
+                .filter(value -> Math.sqrt(value * value + a * a) % 1 == 0)
+                .mapToObj(value -> new int[]{a, value, (int) Math.sqrt(a*a + value*value)})
+                .forEach(ints -> System.out.println("符合条件的数有： " + ints[0] + "," + ints[1] + "," + ints[2]));
+
+
+
+    }
+
+
     public static void main(String[] args) {
 
+        findPythagoreanNumber();
     }
 }

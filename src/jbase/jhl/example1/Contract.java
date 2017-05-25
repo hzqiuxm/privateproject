@@ -11,7 +11,7 @@ public class Contract {
 
     private String contractId;
     private String contractName;
-    private ContractEnum contractEnum;
+    private String contractType;
     private int insuranceFee;
 
     public String getContractId() {
@@ -30,12 +30,13 @@ public class Contract {
         this.contractName = contractName;
     }
 
-    public ContractEnum getContractEnum() {
-        return contractEnum;
+
+    public String getContractType() {
+        return contractType;
     }
 
-    public void setContractEnum(ContractEnum contractEnum) {
-        this.contractEnum = contractEnum;
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
     }
 
     public int getInsuranceFee() {
@@ -51,7 +52,7 @@ public class Contract {
         return "Contract{" +
                 "contractId='" + contractId + '\'' +
                 ", contractName='" + contractName + '\'' +
-                ", contractEnum=" + contractEnum +
+                ", contractType=" + contractType +
                 ", insuranceFee=" + insuranceFee +
                 '}';
     }

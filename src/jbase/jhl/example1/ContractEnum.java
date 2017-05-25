@@ -8,6 +8,7 @@ import java.util.Random;
  * @Author 临江仙 hxqiuxm@163.com
  * @Date 2017/5/1 0001 15:03
  */
+@Deprecated
 public enum ContractEnum {
 
     ANY(0){
