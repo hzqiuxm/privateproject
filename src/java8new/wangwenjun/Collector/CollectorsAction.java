@@ -3,6 +3,7 @@ package java8new.wangwenjun.Collector;
 
 import java.util.*;
 
+import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 /**
@@ -37,6 +38,11 @@ public class CollectorsAction {
         testgroupingByConcurrent();
         testjoining();
         testmaxBy();
+
+        testPartitioningByPredicate();
+        testReducing();
+        testToCollection();
+        testToConcurrentMap();
     }
 
 
@@ -114,8 +120,43 @@ public class CollectorsAction {
         menu.stream().collect(Collectors.maxBy(Comparator.comparing(Dish::getCalories)))
                 .ifPresent(System.out::println);
 
+    }
+
+    private static void testPartitioningByPredicate() {
+
+        System.out.println("-----------------------testPartitioningByPredicate-------------------------");
+        Map<Boolean, List<Dish>> listMap = menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian));
+        Optional.of(listMap).ifPresent(System.out::println);
 
     }
+
+    //聚合操作
+    private static void testReducing() {
+
+        System.out.println("-----------------------testReducing-------------------------");
+        Integer collect = menu.stream().map(Dish::getCalories).collect(Collectors.reducing(0, (d1, d2) -> d1 + d2));
+        Optional.of(collect).ifPresent(System.out::println);
+    }
+
+    private static void testToCollection() {
+
+        System.out.println("-----------------------testToCollection-------------------------");
+        LinkedList<Dish> dishLinkedList = menu.stream().collect(Collectors.toCollection(LinkedList::new));
+        Optional.of(dishLinkedList).ifPresent(System.out::println);
+    }
+
+    //也可以使用map但是线程不安全，ConcurrentMap是线程安全的
+    private static void testToConcurrentMap() {
+
+        System.out.println("-----------------------testToCollectionMap-------------------------");
+        ConcurrentMap<String, Integer> concurrentMap = menu.stream().collect(Collectors.toConcurrentMap(Dish::getName, Dish::getCalories));
+        Optional.of(concurrentMap).ifPresent(System.out::println);
+    }
+
+
+
+
+
 
 
 }

@@ -5,11 +5,11 @@ package jbase;
  *
  * @Author 临江仙 hxqiuxm@163.com
  * @Date 2017/5/1 0001 14:49
- * 测试cpu的多级缓存
+ * 测试cpu的多级缓存,不加volatile 的情况下，程序永远不会停止
  */
 public class Main {
 
-    public static boolean isStop = false;
+    public static /*volatile*/ boolean isStop = false;
 
     public static void main(String[] args) throws Exception{
 

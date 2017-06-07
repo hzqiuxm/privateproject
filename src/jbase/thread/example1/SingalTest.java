@@ -23,39 +23,25 @@ public class SingalTest {
 
         final Busniess busniess = new Busniess();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 50; i++) {
-
+        new Thread(()-> {
+            for (int i = 0; i < 50; i++) {
                     busniess.A();
                 }
-            }
         }).start();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
+        new Thread(()-> {
                 for (int i = 0; i < 50; i++) {
-
                     busniess.B();
                 }
-            }
         }).start();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
+        new Thread(()-> {
                 for (int i = 0; i < 50; i++) {
                     busniess.C();
                 }
-            }
         }).start();
 
     }
-
 
     private class Busniess{
 
@@ -68,69 +54,62 @@ public class SingalTest {
         public void A(){
             lock.lock();
 
-            while (status!=1) {
-
-                try {
+            try {
+                while (status!=1) {
                     conditionA.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
                 for (int i = 0; i < 5; i++) {
                     System.out.println(" A is running ......" + i);
                 }
 
                 status = 2;
                 conditionB.signal();
-
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
                 lock.unlock();
-
-
+            }
         }
 
         public void B(){
 
             lock.lock();
 
-            while (status!=2) {
-                try {
+            try {
+                while (status!=2) {
                     conditionB.await();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
                 for (int i = 0; i < 10; i++) {
                     System.out.println(" B is running ......" + i);
                 }
 
                 status = 3;
                 conditionC.signal();
-
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
                 lock.unlock();
-
+            }
         }
 
         public void C(){
 
             lock.lock();
 
-            while (status!=3) {
-                try {
+            try {
+                while (status!=3) {
                     conditionC.await();
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
                 for (int i = 0; i < 15; i++) {
                     System.out.println(" C is running ......" + i);
                 }
                 status = 1;
                 conditionA.signal();
-
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally {
                 lock.unlock();
-
+            }
         }
     }
 
