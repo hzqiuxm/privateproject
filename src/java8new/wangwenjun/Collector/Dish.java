@@ -45,4 +45,6 @@ public class Dish {
                 ", type=" + type +
                 '}';
     }
+
+    public enum Type {MEAT, FISH, OTHER}
 }

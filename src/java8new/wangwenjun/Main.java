@@ -1,5 +1,7 @@
 package java8new.wangwenjun;
 
+import java.util.function.IntConsumer;
+
 /**
  * Copyright © 2016年 author. All rights reserved.
  *
@@ -7,4 +9,10 @@ package java8new.wangwenjun;
  * @Date 2017/3/14 0014 11:13
  */
 public class Main {
+
+    public static void main(String[] args) {
+
+
+
+    }
 }
