@@ -64,6 +64,13 @@ public class ThreadLocalTest {
  class MyThreadScopeData{
 
     private MyThreadScopeData(){}
+
+    private static ThreadLocal<MyThreadScopeData> tl = new ThreadLocal<MyThreadScopeData>();
+
+    private String name;
+    private int age;
+
+
     public static  MyThreadScopeData getThreadInstance(){
 
         //这样写就是获得了与本线程相关的实例
@@ -75,11 +82,6 @@ public class ThreadLocalTest {
         }
         return instance;
     }
-
-    private static ThreadLocal<MyThreadScopeData> tl = new ThreadLocal<MyThreadScopeData>();
-
-    private String name;
-    private int age;
 
     public String getName() {
         return name;
