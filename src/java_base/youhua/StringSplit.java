@@ -31,7 +31,7 @@ public class StringSplit {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("原始split : " + (end-start));
+        System.out.println("原始split : 还好还好" + (end-start));
 
 
 

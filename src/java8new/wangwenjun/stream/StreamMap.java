@@ -15,12 +15,15 @@ public class StreamMap {
     public static void main(String[] args) {
 
         List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8);
+
+        //列表中每个数增大一倍
         List<Integer> collect = list.stream().map(integer -> integer * 2).collect(Collectors.toList());
         System.out.println(collect);
 
 
         String[] words = {"Hello bananer"};
 
+        //构建字符列表，并去重
         Arrays.stream(words)
                 .map(w->w.split(""))
                 .flatMap(Arrays::stream)

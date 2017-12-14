@@ -9,6 +9,7 @@ import java.util.Date;
  *
  * @Author 临江仙 hxqiuxm@163.com
  * @Date 2016/12/28 0028 17:02
+ * 老的Date相关日期时间类对象是可变的，新的日期时间类是不可变的，我们应该使用新的日期时间相关类
  */
 public class LocalDateTest {
 
@@ -17,6 +18,7 @@ public class LocalDateTest {
         //日期对象
         LocalDate localDate = LocalDate.now();
         System.out.println("当前的日期是："+ localDate);
+        System.out.println("明天的日期是：" + localDate.plusDays(1));
 
         //时间对象
         LocalTime localTime = LocalTime.now();
@@ -31,23 +33,23 @@ public class LocalDateTest {
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime time1 = LocalDateTime.parse(strDate,dateTimeFormatter);
-        System.out.println("字符串解析后的日期是:"+ time1);
+        System.out.println("字符串解析后的日期是: "+ time1);
 
         //时区处理
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         DateTimeFormatter Formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy:HH:mm:ss");
         String format = zonedDateTime.format(Formatter);
 
-        System.out.println("时区获得时间是:" + format);
+        System.out.println("时区获得时间是: " + format);
 
         //时间的增加减少
-        System.out.println(localDate.minusDays(5));
-        System.out.println(localDate.minusDays(-5));
-        System.out.println(localDateTime.minusHours(1));
-        System.out.println(localDateTime.minusSeconds(10));
+        System.out.println("minusDays(5) = " + localDate.minusDays(5));
+        System.out.println("minusDays(-5)= " + localDate.minusDays(-5));
+        System.out.println("minusHours(1)= "+ localDateTime.minusHours(1));
+        System.out.println("minusSeconds(10)= " + localDateTime.minusSeconds(10));
 
         //获取精确时间
-        System.out.println(localDateTime.getNano());
+        System.out.println("获取精确时间:"+localDateTime.getNano());
 
 
 

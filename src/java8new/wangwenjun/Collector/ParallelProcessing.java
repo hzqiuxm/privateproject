@@ -23,18 +23,18 @@ public class ParallelProcessing {
 
 //        System.setProperty("","12");
 
-        System.out.println("The Normal : " + measureSumPerformance(ParallelProcessing::nomalAdd,1_000_000_000L));
+        System.out.println("The Normal : " + measureSumPerformance(ParallelProcessing::nomalAdd,100_000_000L));
 
-//        System.out.println("-----------------1------------------");
-//
-//        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::iterateStream,100_000_000L));
+        System.out.println("-----------------1------------------");
 
-//        System.out.println("------------------2-----------------");
-//
-//        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::iterateParalelStream,10_000_000L));
+        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::iterateStream,100_000_000L));
+
+        System.out.println("------------------2-----------------");
+
+//        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::iterateParalelStream,100_000_000L));
 
         System.out.println("------------------3-----------------");
-        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::ParallelLongStream,1_000_000_000L));
+        System.out.println("The iterateStream : " + measureSumPerformance(ParallelProcessing::ParallelLongStream,100_000_000L));
 
 
     }
