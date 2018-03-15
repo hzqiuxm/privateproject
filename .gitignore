@@ -7,8 +7,3 @@
 .idea/vcs.xml
 .idea/workspace.xml
 out/
-privateproject.iml
-src/design_example/abstractfactory/example6/dao/myimpl/local/db/db2/
-src/design_example/abstractfactory/example6/dao/myimpl/local/file/
-src/design_example/abstractfactory/example6/dao/myimpl/remote/
-src/design_example/observer/weather_example/

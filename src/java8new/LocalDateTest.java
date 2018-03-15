@@ -53,10 +53,19 @@ public class LocalDateTest {
 
 
 
-        //Date与LocalDate之间转化
+        //-----------------------------Date与LocalDate之间转化-------------------------------------
+        //Date ==> LocalDate 转化
+        //1）将java.util.Date转换为ZonedDateTime。
+        //2）使用它的toLocalDate（）方法从ZonedDateTime获取LocalDate。
         Date date = new Date();
         LocalDate toLocalDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         System.out.println(toLocalDate);
+
+        //LocalDate ==> Date 之间转化
+        //1）使用ZonedDateTime将LocalDate转换为Instant。
+        //2）使用from（）方法从Instant对象获取Date的实例
+        LocalDate localDate2 = LocalDate.now();
+        Date date2 = Date.from(localDate2.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
 
     }
